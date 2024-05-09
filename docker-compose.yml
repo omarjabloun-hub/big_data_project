@@ -163,6 +163,7 @@ services:
         max-file: "3"
     networks:
       - confluent
+
   hadoop-master:
     image: custom-hadoop-cluster:latest
     hostname: hadoop-master
@@ -179,8 +180,11 @@ services:
     image: liliasfaxi/hadoop-cluster:latest
     hostname: hadoop-worker1
     container_name: hadoop-worker1
+    command: /bin/bash -c "service ssh start && tail -f /dev/null"
+    depends_on:
+      - hadoop-master
     ports:
-      - "8040:8042"   # NodeManager web UI for worker1
+      - "8042:8042"   # NodeManager web UI for worker1
     networks:
       - confluent
 
@@ -188,8 +192,11 @@ services:
     image: liliasfaxi/hadoop-cluster:latest
     hostname: hadoop-worker2
     container_name: hadoop-worker2
+    command: /bin/bash -c "service ssh start && tail -f /dev/null"
+    depends_on:
+      - hadoop-master
     ports:
-      - "8041:8042"   # NodeManager web UI for worker2
+      - "8043:8042"   # NodeManager web UI for worker2
     networks:
       - confluent
   cassandra_db:
@@ -205,5 +212,30 @@ services:
       - CASSANDRA_PASSWORD=cassandra
     networks:
       - confluent
+  influxdb:
+    image: influxdb:latest
+    ports:
+      - '8086:8086'
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=db0
+      - INFLUXDB_ADMIN_USER=${INFLUXDB_USERNAME}
+      - INFLUXDB_ADMIN_PASSWORD=${INFLUXDB_PASSWORD}
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - '3000:3000'
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana-provisioning/:/etc/grafana/provisioning
+    depends_on:
+      - influxdb
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USERNAME}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+  volumes:
+    influxdb-storage:
+    grafana-storage:
 networks:
   confluent:

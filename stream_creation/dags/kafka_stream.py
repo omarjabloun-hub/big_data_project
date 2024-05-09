@@ -24,12 +24,14 @@ def read_data(csv_reader):
 
 def stream_data():
     import logging
+    # localhost:9092
     producer = KafkaProducer(bootstrap_servers=['broker:29092'], value_serializer=lambda x: json.dumps(x).encode('utf-8'))
     curr_time = time.time()
-    with open('../../dataset/customer_data.csv', 'r') as file:
+
+    with open('/opt/airflow/data/customer_data.csv', 'r') as file:
         csv_reader = csv.DictReader(file)
         while True:
-            time.sleep(1)
+            time.sleep(1) # sleep 1 second
             if time.time() > curr_time + 60: #1 minute
                 break
             try:
@@ -54,3 +56,4 @@ with DAG('csv_to_kafka',
         python_callable=stream_data
     )
 
+# stream_data()
