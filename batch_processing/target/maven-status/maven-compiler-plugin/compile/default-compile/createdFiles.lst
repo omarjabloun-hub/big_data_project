@@ -1,0 +1,11 @@
+hadoop/mapreduce/questions/TotalAmountSpentByRegionQuestion.class
+hadoop/mapreduce/questions/Question.class
+hadoop/mapreduce/Main.class
+hadoop/mapreduce/questions/AgeStatisticsQuestion.class
+hadoop/mapreduce/questions/TotalAmountSpentByCategoryQuestion.class
+hadoop/mapreduce/questions/PromotionalOffersQuestion.class
+hadoop/mapreduce/questions/TotalAmountSpentByGenderQuestion.class
+hadoop/mapreduce/Batch.class
+hadoop/mapreduce/questions/CustomerSatisfactionQuestion.class
+hadoop/mapreduce/questions/BoughtQuantityForEachCategoryQuestion.class
+hadoop/mapreduce/BatchProcessor.class

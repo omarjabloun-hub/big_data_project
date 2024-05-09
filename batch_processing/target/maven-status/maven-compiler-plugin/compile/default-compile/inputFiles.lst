@@ -1,0 +1,11 @@
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/questions/Question.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/BatchProcessor.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/questions/TotalAmountSpentByRegionQuestion.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/questions/BoughtQuantityForEachCategoryQuestion.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/questions/TotalAmountSpentByCategoryQuestion.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/questions/TotalAmountSpentByGenderQuestion.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/questions/AgeStatisticsQuestion.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/Main.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/Batch.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/questions/PromotionalOffersQuestion.java
+/home/djablin/big_data_project/batch_processing/src/main/java/hadoop/mapreduce/questions/CustomerSatisfactionQuestion.java
